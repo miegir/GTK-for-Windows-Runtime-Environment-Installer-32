@@ -11,12 +11,12 @@
 ; Directory and package names: gtk3-runtime.
 
 
-!define GTK_VERSION "3.24.29"
+!define GTK_VERSION "3.24.30"
 !define GTK_BIN_VERSION "3.0.0"
-!define PRODUCT_VERSION "${GTK_VERSION}-2021-04-29-ts-win64"
-!define PRODUCT_NAME "GTK3-Runtime Win64"
+!define PRODUCT_VERSION "${GTK_VERSION}-2021-12-08-ts-win32"
+!define PRODUCT_NAME "GTK3-Runtime Win32"
 !define PRODUCT_PUBLISHER "Tom Schoonjans"
-!define PRODUCT_WEB_SITE "https://github.com/tschoonj/GTK-for-Windows-Runtime-Environment-Installer"
+!define PRODUCT_WEB_SITE "https://github.com/miegir/GTK-for-Windows-Runtime-Environment-Installer-32"
 !define INSTALLER_OUTPUT_FILE "gtk3-runtime-${PRODUCT_VERSION}.exe"
 
 ;!define PRODUCT_DIR_REGKEY "Software\Microsoft\Windows\CurrentVersion\App Paths\AppMainExe.exe"
@@ -55,7 +55,7 @@ OutFile "${INSTALLER_OUTPUT_FILE}"
 Unicode true
 
 ; The Default Installation Directory
-InstallDir "$PROGRAMFILES64\${PRODUCT_NAME}"
+InstallDir "$PROGRAMFILES\${PRODUCT_NAME}"
 ;InstallDir "$WINDIR"
 ; Detect the old installation
 InstallDirRegKey HKLM "SOFTWARE\${PRODUCT_NAME}" ""
@@ -198,8 +198,8 @@ FunctionEnd
 
 
 ;Description
-LangString DESC_SecCopyUI ${LANG_ENGLISH} "GTK3 Runtime 64-bit"
-LangString TEXT_IO_TITLE ${LANG_ENGLISH} "GTK3 Runtime 64-bit"
+LangString DESC_SecCopyUI ${LANG_ENGLISH} "GTK3 Runtime 32-bit"
+LangString TEXT_IO_TITLE ${LANG_ENGLISH} "GTK3 Runtime 32-bit"
 LangString TEXT_IO_SUBTITLE ${LANG_ENGLISH} "Additional options"
 
 
@@ -232,14 +232,14 @@ SectionIn 1 2 RO
 	; be sure to do the same in the uninstall section.
 
 	File bin\libatk-1.0-0.dll		; atk
-	File bin\libatkmm-1.6-1.dll		; atk
+	;File bin\libatkmm-1.6-1.dll		; atk
 	File bin\libssp-0.dll			; needed by cairo
 	File bin\libcairo-2.dll			; cairo, needed by gtk
 	File bin\libcairo-gobject-2.dll	; cairo. Doesn't seem to be required, but since we're distributing cairo...
 	File bin\libcairo-script-interpreter-2.dll  ; cairo. Doesn't seem to be required, but since we're distributing cairo...
-	File bin\libcairomm-1.0-1.dll
+	;File bin\libcairomm-1.0-1.dll
 	File bin\libepoxy-0.dll
-	File bin\libexslt-0.dll
+	;File bin\libexslt-0.dll
 	File bin\libffi-7.dll  			; libffi is required by glib2 
 	File bin\libfontconfig-1.dll	; fontconfig is needed for ft2 pango backend
 	File bin\libfreetype-6.dll		; freetype is needed for ft2 pango backend
@@ -247,23 +247,23 @@ SectionIn 1 2 RO
 	File bin\libgailutil-3-0.dll	; from gtk
 	File bin\libgdk_pixbuf-2.0-0.dll  ; from gtk
 	File bin\liblzma-5.dll  		; from gtk
-	File bin\libcroco-0.6-3.dll		; from gtk
+	;File bin\libcroco-0.6-3.dll		; from gtk
 	File bin\libgdk-3-0.dll  		; from gtk
-	File bin\libgdkmm-3.0-1.dll
+	;File bin\libgdkmm-3.0-1.dll
 	File bin\libgio-2.0-0.dll  		; from glib
 	File bin\libglib-2.0-0.dll  	; glib
-	File bin\libglibmm-2.4-1.dll  	; glib
-	File bin\libgiomm-2.4-1.dll  	; glib
-	File bin\libsigc-2.0-0.dll
-	File bin\libglibmm_generate_extra_defs-2.4-1.dll  ; glib
+	;File bin\libglibmm-2.4-1.dll  	; glib
+	;File bin\libgiomm-2.4-1.dll  	; glib
+	;File bin\libsigc-2.0-0.dll
+	;File bin\libglibmm_generate_extra_defs-2.4-1.dll  ; glib
 	File bin\libgmodule-2.0-0.dll	; from glib
 	File bin\libgobject-2.0-0.dll	; from glib
 	File bin\libgthread-2.0-0.dll	; from glib
 	File bin\libgtk-3-0.dll  ; gtk
-	File bin\libgtksourceview-3.0-1.dll
-	File bin\libgtksourceview-4-0.dll
-	File bin\libgtksourceviewmm-3.0-0.dll
-	File bin\libgtkmm-3.0-1.dll
+	;File bin\libgtksourceview-3.0-1.dll
+	;File bin\libgtksourceview-4-0.dll
+	;File bin\libgtksourceviewmm-3.0-0.dll
+	;File bin\libgtkmm-3.0-1.dll
 	File bin\libharfbuzz-0.dll 		; required by pango
 	File bin\libintl-8.dll  		; gettext, needed by all i18n libs
 	File bin\libiconv-2.dll			; required by fontconfig
@@ -272,15 +272,15 @@ SectionIn 1 2 RO
 	File bin\libpangocairo-1.0-0.dll  ; pango, needed by gtk
 	File bin\libpangowin32-1.0-0.dll  ; pango, needed by gtk
 	File bin\libpangoft2-1.0-0.dll	; pango, needed by gtk
-	File bin\libpangomm-1.4-1.dll
+	;File bin\libpangomm-1.4-1.dll
 	File bin\libpixman-1-0.dll  	; libpixman, needed by cairo
 	File bin\libpng16-16.dll  		; required by gdk-pixbuf2
 	File bin\libjpeg-8.dll  		; required by gdk-pixbuf2
-	File bin\libjasper-4.dll  		; required by gdk-pixbuf2
-	File bin\libxml++-2.6-2.dll  ; fontconfig needs this
-	File bin\libxml++-3.0-1.dll
+	;File bin\libjasper-4.dll  		; required by gdk-pixbuf2
+	;File bin\libxml++-2.6-2.dll  ; fontconfig needs this
+	;File bin\libxml++-3.0-1.dll
 	File bin\libxml2-2.dll			; fontconfig needs this
-	File bin\libxslt-1.dll			; fontconfig needs this
+	;File bin\libxslt-1.dll			; fontconfig needs this
 	File bin\libpcre-1.dll			; fontconfig needs this
 	File bin\libthai-0.dll			; fontconfig needs this
 	File bin\libdatrie-1.dll			; fontconfig needs this
@@ -291,43 +291,44 @@ SectionIn 1 2 RO
 	File bin\librsvg-2-2.dll		; required by adwaita-icon-theme
 	File bin\libtiff-5.dll			; required by gdk-pixbuf2
 	File bin\libstdc++-6.dll		; standard MSYS2 library
-	File bin\libgcc_s_seh-1.dll		; standard MSYS2 library
+	;File bin\libgcc_s_seh-1.dll		; standard MSYS2 library
+	File bin\libgcc_s_dw2-1.dll		; standard MSYS2 library
 	File bin\libwinpthread-1.dll	; standard MSYS2 library
-	File bin\libsoup-2.4-1.dll      ; libsoup
-	File bin\libsoup-gnome-2.4-1.dll      ; libsoup
-	File bin\libsqlite3-0.dll       ; libsoup dependency
-	File bin\libpsl-5.dll       ; libsoup dependency
+	;File bin\libsoup-2.4-1.dll      ; libsoup
+	;File bin\libsoup-gnome-2.4-1.dll      ; libsoup
+	;File bin\libsqlite3-0.dll       ; libsoup dependency
+	;File bin\libpsl-5.dll       ; libsoup dependency
 	File bin\libbrotlidec.dll       ; libsoup dependency
 	File bin\libbrotlicommon.dll       ; libsoup dependency
-	File bin\libgnutls-30.dll       ; glib-networking dependency
+	;File bin\libgnutls-30.dll       ; glib-networking dependency
 	File bin\libgmp-10.dll		; glib-networking dependency
-	File bin\libhogweed-6.dll       ; glib-networking dependency
-	File bin\libnettle-8.dll	; glib-networking dependency
-	File bin\libidn2-0.dll		; glib-networking dependency
+	;File bin\libhogweed-6.dll       ; glib-networking dependency
+	;File bin\libnettle-8.dll	; glib-networking dependency
+	;File bin\libidn2-0.dll		; glib-networking dependency
 	File bin\libp11-kit-0.dll	; glib-networking dependency
 	File bin\libtasn1-6.dll		; glib-networking dependency
-	File bin\libunistring-2.dll	; glib-networking dependency
-	File bin\libproxy-1.dll	; glib-networking dependency
-	File bin\libpeas-1.0-0.dll	; libpeas
-	File bin\libpeas-gtk-1.0-0.dll	; libpeas
-	File bin\libgirepository-1.0-1.dll	; gobject-introspection
+	;File bin\libunistring-2.dll	; glib-networking dependency
+	;File bin\libproxy-1.dll	; glib-networking dependency
+	;File bin\libpeas-1.0-0.dll	; libpeas
+	;File bin\libpeas-gtk-1.0-0.dll	; libpeas
+	;File bin\libgirepository-1.0-1.dll	; gobject-introspection
 
 	; We install this into the same place as the DLLs to avoid any PATH manipulation.
 	SetOutPath "$LIB_INSTDIR"
-	File bin\gdbus.exe
-	File bin\fc-cache.exe
-	File bin\fc-cat.exe
-	File bin\fc-list.exe
-	File bin\fc-match.exe
-	File bin\fc-pattern.exe
-	File bin\fc-query.exe
-	File bin\fc-scan.exe
-	File bin\fc-validate.exe
-	File bin\gdk-pixbuf-query-loaders.exe  ; from gdk_pixbuf
-	File bin\gspawn-win64-helper.exe
-	File bin\gspawn-win64-helper-console.exe
-	File bin\gtk-query-immodules-3.0.exe
-	File bin\gtk-update-icon-cache.exe
+	;File bin\gdbus.exe
+	;File bin\fc-cache.exe
+	;File bin\fc-cat.exe
+	;File bin\fc-list.exe
+	;File bin\fc-match.exe
+	;File bin\fc-pattern.exe
+	;File bin\fc-query.exe
+	;File bin\fc-scan.exe
+	;File bin\fc-validate.exe
+	;File bin\gdk-pixbuf-query-loaders.exe  ; from gdk_pixbuf
+	;File bin\gspawn-win64-helper.exe
+	;File bin\gspawn-win64-helper-console.exe
+	;File bin\gtk-query-immodules-3.0.exe
+	;File bin\gtk-update-icon-cache.exe
 	
 	
 	SetOutPath "$INSTDIR\etc"
@@ -343,13 +344,13 @@ SectionIn 1 2 RO
 	SetOutPath "$INSTDIR\lib\gdk-pixbuf-2.0\2.10.0\"
 	File /r lib\gdk-pixbuf-2.0\2.10.0\loaders
 
-	SetOutPath "$INSTDIR\lib\gio\modules"
-	File lib\gio\modules\libgiognutls.dll
-	File lib\gio\modules\libgiognomeproxy.dll
-	File lib\gio\modules\libgiolibproxy.dll
+	;SetOutPath "$INSTDIR\lib\gio\modules"
+	;File lib\gio\modules\libgiognutls.dll
+	;File lib\gio\modules\libgiognomeproxy.dll
+	;File lib\gio\modules\libgiolibproxy.dll
 
-	SetOutPath "$INSTDIR\lib\libpeas-1.0\loaders"
-	File lib\libpeas-1.0\loaders\libpython3loader.dll
+	;SetOutPath "$INSTDIR\lib\libpeas-1.0\loaders"
+	;File lib\libpeas-1.0\loaders\libpython3loader.dll
 
 	SetOutPath "$INSTDIR\lib"
 	File /r lib\girepository-1.0
@@ -384,11 +385,11 @@ SectionIn 1 2 RO
 	SetOutPath "$INSTDIR\share"
 	File /r share\icons
 
-	SetOutPath "$INSTDIR\share"
-	File /r share\gtksourceview-3.0
+	;SetOutPath "$INSTDIR\share"
+	;File /r share\gtksourceview-3.0
 
-	SetOutPath "$INSTDIR\share"
-	File /r share\gtksourceview-4
+	;SetOutPath "$INSTDIR\share"
+	;File /r share\gtksourceview-4
 
 	SetOutPath "$INSTDIR\gtk3-runtime"
 	; File gtk-postinstall.bat ; this file is generated now
@@ -429,7 +430,7 @@ SectionEnd
 
 ; Section descriptions
 !insertmacro MUI_FUNCTION_DESCRIPTION_BEGIN
-	!insertmacro MUI_DESCRIPTION_TEXT ${SecGTK} "GTK+ 64-bit Runtime Libraries"
+	!insertmacro MUI_DESCRIPTION_TEXT ${SecGTK} "GTK+ 32-bit Runtime Libraries"
 	!insertmacro MUI_DESCRIPTION_TEXT ${SecTranslations} "Additional translations (some are incomplete)"
 !insertmacro MUI_FUNCTION_DESCRIPTION_END
 
@@ -439,12 +440,12 @@ SectionEnd
 ; Executed on installer run
 Function .onInit
 	SetShellVarContext all  ; use all user variables as opposed to current user
-	${IfNot} ${RunningX64} 
-		MessageBox MB_OK|MB_ICONEXCLAMATION "This installation requires a 64-bit Windows system" /SD IDOK
-		Abort
-	${EndIf}
+	;${IfNot} ${RunningX64} 
+	;	MessageBox MB_OK|MB_ICONEXCLAMATION "This installation requires a 64-bit Windows system" /SD IDOK
+	;	Abort
+	;${EndIf}
 
-	SetRegView 64
+	SetRegView 32
 		
 	
 
@@ -559,9 +560,9 @@ Section -post
 		WriteRegDWORD HKLM "${PRODUCT_UNINST_KEY}" "NoRepair" 1
 
 		; uninstall shortcut
-		CreateDirectory "$SMPROGRAMS\GTK3 Runtime 64-bit"
-		CreateShortCut "$SMPROGRAMS\GTK3 Runtime 64-bit\Uninstall GTK3 Runtime.lnk" "$INSTDIR\gtk3_runtime_uninst.exe" "" ""
-		WriteIniStr "$SMPROGRAMS\GTK3 Runtime 64-bit\Go to the website.url" "InternetShortcut" "URL" "${PRODUCT_WEB_SITE}"
+		CreateDirectory "$SMPROGRAMS\GTK3 Runtime 32-bit"
+		CreateShortCut "$SMPROGRAMS\GTK3 Runtime 32-bit\Uninstall GTK3 Runtime.lnk" "$INSTDIR\gtk3_runtime_uninst.exe" "" ""
+		WriteIniStr "$SMPROGRAMS\GTK3 Runtime 32-bit\Go to the website.url" "InternetShortcut" "URL" "${PRODUCT_WEB_SITE}"
 
 
 		; Write $INSTDIR\gtk2-runtime\gtk2r-env.bat
@@ -591,7 +592,7 @@ var uninstall_option_translations  ; uninstall translations: yes, no (default)
 
 
 Function un.onInit
-	SetRegView 64
+	SetRegView 32
 	${GetOptions} "$CMDLINE" "/remove_config=" $uninstall_option_remove_config
 	${GetOptions} "$CMDLINE" "/sideeffects=" $uninstall_option_sideeffects
 	${GetOptions} "$CMDLINE" "/dllpath=" $uninstall_option_dllpath
@@ -622,31 +623,31 @@ Function un.DeleteDlls
 	un_no_dll_append:
 
 	; bin stuff (they are in the same directory)
-	Delete $LIB_INSTDIR\gdbus.exe
-	Delete $LIB_INSTDIR\fc-cache.exe
-	Delete $LIB_INSTDIR\fc-cat.exe
-	Delete $LIB_INSTDIR\fc-list.exe
-	Delete $LIB_INSTDIR\fc-match.exe
-	Delete $LIB_INSTDIR\fc-pattern.exe
-	Delete $LIB_INSTDIR\fc-query.exe
-	Delete $LIB_INSTDIR\fc-scan.exe
-	Delete $LIB_INSTDIR\fc-validate.exe
-	Delete $LIB_INSTDIR\gdk-pixbuf-query-loaders.exe
-	Delete $LIB_INSTDIR\gspawn-win64-helper.exe
-	Delete $LIB_INSTDIR\gspawn-win64-helper-console.exe
-	Delete $LIB_INSTDIR\gtk-query-immodules-3.0.exe
-	Delete $LIB_INSTDIR\gtk-update-icon-cache.exe
+	;Delete $LIB_INSTDIR\gdbus.exe
+	;Delete $LIB_INSTDIR\fc-cache.exe
+	;Delete $LIB_INSTDIR\fc-cat.exe
+	;Delete $LIB_INSTDIR\fc-list.exe
+	;Delete $LIB_INSTDIR\fc-match.exe
+	;Delete $LIB_INSTDIR\fc-pattern.exe
+	;Delete $LIB_INSTDIR\fc-query.exe
+	;Delete $LIB_INSTDIR\fc-scan.exe
+	;Delete $LIB_INSTDIR\fc-validate.exe
+	;Delete $LIB_INSTDIR\gdk-pixbuf-query-loaders.exe
+	;Delete $LIB_INSTDIR\gspawn-win64-helper.exe
+	;Delete $LIB_INSTDIR\gspawn-win64-helper-console.exe
+	;Delete $LIB_INSTDIR\gtk-query-immodules-3.0.exe
+	;Delete $LIB_INSTDIR\gtk-update-icon-cache.exe
 
 	; dlls
 	Delete $LIB_INSTDIR\libatk-1.0-0.dll  ; atk
-	Delete $LIB_INSTDIR\libatkmm-1.6-1.dll  ; atk
+	;Delete $LIB_INSTDIR\libatkmm-1.6-1.dll  ; atk
 	Delete $LIB_INSTDIR\libcairo-2.dll  ; cairo, needed by gtk
 	Delete $LIB_INSTDIR\libcairo-gobject-2.dll  ; cairo. Doesn't seem to be required, but since we're distributing cairo...
 	Delete $LIB_INSTDIR\libcairo-script-interpreter-2.dll  ; cairo. Doesn't seem to be required, but since we're distributing cairo...
-	Delete $LIB_INSTDIR\libcairomm-1.0-1.dll
+	;Delete $LIB_INSTDIR\libcairomm-1.0-1.dll
 	Delete $LIB_INSTDIR\libssp-0.dll
 	Delete $LIB_INSTDIR\libepoxy-0.dll
-	Delete $LIB_INSTDIR\libexslt-0.dll
+	;Delete $LIB_INSTDIR\libexslt-0.dll
 	Delete $LIB_INSTDIR\libffi-7.dll  ; libffi is required by glib 
 	Delete $LIB_INSTDIR\libfontconfig-1.dll  ; fontconfig is needed for ft2 pango backend
 	Delete $LIB_INSTDIR\libfreetype-6.dll  ; freetype is needed for ft2 pango backend
@@ -654,23 +655,23 @@ Function un.DeleteDlls
 	Delete $LIB_INSTDIR\libgailutil-3-0.dll  ; from gtk
 	Delete $LIB_INSTDIR\libgdk_pixbuf-2.0-0.dll  ; from gtk
 	Delete $LIB_INSTDIR\liblzma-5.dll  ; from gtk
-	Delete $LIB_INSTDIR\libcroco-0.6-3.dll  ; from gtk
+	;Delete $LIB_INSTDIR\libcroco-0.6-3.dll  ; from gtk
 	Delete $LIB_INSTDIR\libgdk-3-0.dll  ; from gtk
-	Delete $LIB_INSTDIR\libgdkmm-3.0-1.dll
+	;Delete $LIB_INSTDIR\libgdkmm-3.0-1.dll
 	Delete $LIB_INSTDIR\libgio-2.0-0.dll  ; from glib
 	Delete $LIB_INSTDIR\libglib-2.0-0.dll  ; glib
-	Delete $LIB_INSTDIR\libglibmm-2.4-1.dll  ; glib
-	Delete $LIB_INSTDIR\libgiomm-2.4-1.dll  ; glib
-	Delete $LIB_INSTDIR\libsigc-2.0-0.dll  ; glib
-	Delete $LIB_INSTDIR\libglibmm_generate_extra_defs-2.4-1.dll  ; glib
+	;Delete $LIB_INSTDIR\libglibmm-2.4-1.dll  ; glib
+	;Delete $LIB_INSTDIR\libgiomm-2.4-1.dll  ; glib
+	;Delete $LIB_INSTDIR\libsigc-2.0-0.dll  ; glib
+	;Delete $LIB_INSTDIR\libglibmm_generate_extra_defs-2.4-1.dll  ; glib
 	Delete $LIB_INSTDIR\libgmodule-2.0-0.dll  ; from glib
 	Delete $LIB_INSTDIR\libgobject-2.0-0.dll  ; from glib
 	Delete $LIB_INSTDIR\libgthread-2.0-0.dll  ; from glib
 	Delete $LIB_INSTDIR\libgtk-3-0.dll  ; gtk
-	Delete $LIB_INSTDIR\libgtksourceview-3.0-1.dll  ; gtk
-	Delete $LIB_INSTDIR\libgtksourceview-4-0.dll  ; gtk
-	Delete $LIB_INSTDIR\libgtksourceviewmm-3.0-0.dll  ; gtk
-	Delete $LIB_INSTDIR\libgtkmm-3.0-1.dll
+	;Delete $LIB_INSTDIR\libgtksourceview-3.0-1.dll  ; gtk
+	;Delete $LIB_INSTDIR\libgtksourceview-4-0.dll  ; gtk
+	;Delete $LIB_INSTDIR\libgtksourceviewmm-3.0-0.dll  ; gtk
+	;Delete $LIB_INSTDIR\libgtkmm-3.0-1.dll
 	Delete $LIB_INSTDIR\libharfbuzz-0.dll
 	Delete $LIB_INSTDIR\libintl-8.dll  ; gettext, needed by all i18n libs
 	Delete $LIB_INSTDIR\libiconv-2.dll
@@ -679,18 +680,18 @@ Function un.DeleteDlls
 	Delete $LIB_INSTDIR\libpangocairo-1.0-0.dll  ; pango, needed by gtk
 	Delete $LIB_INSTDIR\libpangowin32-1.0-0.dll  ; pango, needed by gtk
 	Delete $LIB_INSTDIR\libpangoft2-1.0-0.dll  ; pango, needed by gtk
-	Delete $LIB_INSTDIR\libpangomm-1.4-1.dll
+	;Delete $LIB_INSTDIR\libpangomm-1.4-1.dll
 	Delete $LIB_INSTDIR\libpixman-1-0.dll  ; libpixman, needed by cairo
 	Delete $LIB_INSTDIR\libpng16-16.dll  ; for gdk_pixbuf loader.
-	Delete $LIB_INSTDIR\libjasper-4.dll  ; for gdk_pixbuf loader.
+	;Delete $LIB_INSTDIR\libjasper-4.dll  ; for gdk_pixbuf loader.
 	Delete $LIB_INSTDIR\libjpeg-8.dll  ; for gdk_pixbuf loader.
-	Delete $LIB_INSTDIR\libxslt-1.dll  ; fontconfig needs this
+	;Delete $LIB_INSTDIR\libxslt-1.dll  ; fontconfig needs this
 	Delete $LIB_INSTDIR\libpcre-1.dll  ; fontconfig needs this
 	Delete $LIB_INSTDIR\libthai-0.dll  ; fontconfig needs this
 	Delete $LIB_INSTDIR\libdatrie-1.dll  ; fontconfig needs this
 	Delete $LIB_INSTDIR\libxml2-2.dll  ; fontconfig needs this
-	Delete $LIB_INSTDIR\libxml++-2.6-2.dll  ; fontconfig needs this
-	Delete $LIB_INSTDIR\libxml++-3.0-1.dll
+	;Delete $LIB_INSTDIR\libxml++-2.6-2.dll  ; fontconfig needs this
+	;Delete $LIB_INSTDIR\libxml++-3.0-1.dll
 	Delete $LIB_INSTDIR\zlib1.dll  ; png and many others need this
 	Delete $LIB_INSTDIR\libexpat-1.dll
 	Delete $LIB_INSTDIR\libbz2-1.dll
@@ -698,26 +699,27 @@ Function un.DeleteDlls
 	Delete $LIB_INSTDIR\librsvg-2-2.dll
 	Delete $LIB_INSTDIR\libtiff-5.dll
 	Delete $LIB_INSTDIR\libstdc++-6.dll
-	Delete $LIB_INSTDIR\libgcc_s_seh-1.dll
+	;Delete $LIB_INSTDIR\libgcc_s_seh-1.dll
+	Delete $LIB_INSTDIR\libgcc_s_dw2-1.dll
 	Delete $LIB_INSTDIR\libwinpthread-1.dll
-	Delete $LIB_INSTDIR\libsoup-2.4-1.dll      ; libsoup
-	Delete $LIB_INSTDIR\libsoup-gnome-2.4-1.dll      ; libsoup
-	Delete $LIB_INSTDIR\libsqlite3-0.dll       ; libsoup dependency
-	Delete $LIB_INSTDIR\libpsl-5.dll       ; libsoup dependency
+	;Delete $LIB_INSTDIR\libsoup-2.4-1.dll      ; libsoup
+	;Delete $LIB_INSTDIR\libsoup-gnome-2.4-1.dll      ; libsoup
+	;Delete $LIB_INSTDIR\libsqlite3-0.dll       ; libsoup dependency
+	;Delete $LIB_INSTDIR\libpsl-5.dll       ; libsoup dependency
 	Delete $LIB_INSTDIR\libbrotlidec.dll       ; libsoup dependency
 	Delete $LIB_INSTDIR\libbrotlicommon.dll       ; libsoup dependency
-	Delete $LIB_INSTDIR\libgnutls-30.dll       ; glib-networking dependency
+	;Delete $LIB_INSTDIR\libgnutls-30.dll       ; glib-networking dependency
 	Delete $LIB_INSTDIR\libgmp-10.dll		; glib-networking dependency
-	Delete $LIB_INSTDIR\libhogweed-6.dll       ; glib-networking dependency
-	Delete $LIB_INSTDIR\libnettle-8.dll	; glib-networking dependency
-	Delete $LIB_INSTDIR\libidn2-0.dll		; glib-networking dependency
+	;Delete $LIB_INSTDIR\libhogweed-6.dll       ; glib-networking dependency
+	;Delete $LIB_INSTDIR\libnettle-8.dll	; glib-networking dependency
+	;Delete $LIB_INSTDIR\libidn2-0.dll		; glib-networking dependency
 	Delete $LIB_INSTDIR\libp11-kit-0.dll	; glib-networking dependency
 	Delete $LIB_INSTDIR\libtasn1-6.dll		; glib-networking dependency
-	Delete $LIB_INSTDIR\libunistring-2.dll	; glib-networking dependency
-	Delete $LIB_INSTDIR\libproxy-1.dll	; glib-networking dependency
-	Delete $LIB_INSTDIR\libpeas-1.0-0.dll	
-	Delete $LIB_INSTDIR\libpeas-gtk-1.0-0.dll
-	Delete $LIB_INSTDIR\libgirepository-1.0-1.dll
+	;Delete $LIB_INSTDIR\libunistring-2.dll	; glib-networking dependency
+	;Delete $LIB_INSTDIR\libproxy-1.dll	; glib-networking dependency
+	;Delete $LIB_INSTDIR\libpeas-1.0-0.dll	
+	;Delete $LIB_INSTDIR\libpeas-gtk-1.0-0.dll
+	;Delete $LIB_INSTDIR\libgirepository-1.0-1.dll
 
 
 FunctionEnd
@@ -754,9 +756,9 @@ Section Uninstall
 		; FIXME: Do we have this registry key?
 		; DeleteRegKey HKCU "Software\${PRODUCT_NAME}"
 
-		Delete "$SMPROGRAMS\GTK3 Runtime 64-bit\Uninstall GTK3 Runtime.lnk"
-		Delete "$SMPROGRAMS\GTK3 Runtime 64-bit\Go to the website.url"
-		RMDir "$SMPROGRAMS\GTK3 Runtime 64-bit"  ; only if empty, theme selector may still be there
+		Delete "$SMPROGRAMS\GTK3 Runtime 32-bit\Uninstall GTK3 Runtime.lnk"
+		Delete "$SMPROGRAMS\GTK3 Runtime 32-bit\Go to the website.url"
+		RMDir "$SMPROGRAMS\GTK3 Runtime 32-bit"  ; only if empty, theme selector may still be there
 
 		; Remove GTK from $PATH
 		StrCmp $ADD_TO_PATH "0" un_nopath  ; Setting $PATH was not requested during installation
@@ -963,18 +965,18 @@ FunctionEnd
 
 
 ; WritePostInstall
-Function WritePostInstall
-	SetShellVarContext all  ; use all user variables as opposed to current user
-	Pop $R0 ; Output file
-	Push $R9
-		FileOpen $R9 $R0 w
-		FileWrite $R9 "@echo off$\r$\n"
-		FileWrite $R9 "rem $\"$INSTDIR\bin\gdk-pixbuf-query-loaders.exe$\" > $\"$INSTDIR\etc\gtk-3.0\gdk-pixbuf.loaders$\"$\r$\n"
-		FileWrite $R9 "$\"$INSTDIR\bin\gtk-query-immodules-3.0.exe$\" > $\"$INSTDIR\etc\gtk-3.0\gtk.immodules$\"$\r$\n"
-		FileWrite $R9 "rem $\"$INSTDIR\bin\gtk-update-icon-cache.exe$\"$\r$\n"
-		FileClose $R9
-	Pop $R9
-FunctionEnd
+;Function WritePostInstall
+;	SetShellVarContext all  ; use all user variables as opposed to current user
+;	Pop $R0 ; Output file
+;	Push $R9
+;		FileOpen $R9 $R0 w
+;		FileWrite $R9 "@echo off$\r$\n"
+;		FileWrite $R9 "rem $\"$INSTDIR\bin\gdk-pixbuf-query-loaders.exe$\" > $\"$INSTDIR\etc\gtk-3.0\gdk-pixbuf.loaders$\"$\r$\n"
+;		FileWrite $R9 "$\"$INSTDIR\bin\gtk-query-immodules-3.0.exe$\" > $\"$INSTDIR\etc\gtk-3.0\gtk.immodules$\"$\r$\n"
+;		FileWrite $R9 "rem $\"$INSTDIR\bin\gtk-update-icon-cache.exe$\"$\r$\n"
+;		FileClose $R9
+;	Pop $R9
+;FunctionEnd
 
 
 

@@ -1,6 +1,5 @@
 *~
-gtk2-runtime*-ts-win64*exe
-gtk3-runtime*-ts-win64*exe
+gtk2-runtime*-ts-win32*exe
+gtk3-runtime*-ts-win32*exe
 *.swp
 /.vscode
-hello-world-gtkmm3.exe
